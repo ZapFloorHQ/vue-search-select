@@ -65,6 +65,10 @@
       cleanSearch: {
         type: Boolean,
         default: true
+      },
+      allowAddItem: {
+        type: Boolean,
+        default: true
       }
     },
     data () {
@@ -73,13 +77,6 @@
         searchText: '',
         mousedownState: false, // mousedown on option menu
         pointer: 0
-      }
-    },
-    watch: {
-      searchText: function (newval, oldval) {
-        if (newval && this.filteredOptions.length === 0) {
-          console.log('item does not exist...')
-        }
       }
     },
     computed: {
@@ -175,7 +172,7 @@
         console.log('option:')
         console.log(option)
         let selectedOptions = null
-        if (newOption) {
+        if (newOption && this.allowAddItem) {
           this.$emit('itemAdded', option)
         }
         selectedOptions = _.unionWith(this.selectedOptions, [option], _.isEqual)

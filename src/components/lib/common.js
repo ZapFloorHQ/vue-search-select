@@ -56,12 +56,13 @@ export default {
   // down enter key
   enterItem (self) {
     const currentItem = self.filteredOptions[self.pointer]
-    console.log(currentItem)
     if (currentItem) {
       self.selectItem(currentItem)
     } else {
-      const newObj = { value: self.searchText, text: self.searchText }
-      self.selectItem(newObj, true)
+      if (self.allowAddItem) {
+        const newObj = { value: self.searchText, text: self.searchText }
+        self.selectItem(newObj, true)
+      }
     }
   },
   // mouse enter event on item

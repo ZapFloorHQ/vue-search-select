@@ -14,7 +14,8 @@
           selectedOptions: this.items,
           isError: this.isError,
           placeholder: this.placeholder,
-          filterPredicate: this.filterPredicate
+          filterPredicate: this.filterPredicate,
+          allowAddItem: false
         },
         on: {
           select: this.onSelect,
