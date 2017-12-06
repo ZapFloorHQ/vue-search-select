@@ -74,6 +74,11 @@
         pointer: 0
       }
     },
+    watch: {
+      searchText: function(newval, oldval){
+        console.log(newval)
+      }
+    },
     computed: {
       inputText () {
         if (this.searchText) {
