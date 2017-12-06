@@ -31,8 +31,7 @@
              :class="{ 'selected': option.selected, 'current': pointer === idx }"
              @click.stop="selectItem(option)"
              @mousedown="mousedownItem"
-             @mouseenter="pointerSet(idx)">
-          {{option.text}}
+             @mouseenter="pointerSet(idx)" v-html="option.text">
         </div>
       </template>
     </div>
