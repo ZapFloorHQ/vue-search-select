@@ -11,7 +11,7 @@
         <multi-select :options="options"
                       :selected-options="items"
                       placeholder="select item"
-                      @select="onSelect">
+                      @select="onSelect" @itemAdded="addItem">
         </multi-select>
       </div>
     </div>
@@ -95,6 +95,10 @@
       // select option from parent component
       selectOption () {
         this.items = _.unionWith(this.items, [this.options[0]], _.isEqual)
+      },
+      addItem: function (option) {
+        console.log('item added')
+        console.log(option)
       }
     },
     components: {

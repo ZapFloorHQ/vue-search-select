@@ -18,7 +18,7 @@
            @keydown.delete="deleteTextOrItem"
     />
     <div class="text"
-         :class="textClass">{{inputText}}
+         :class="textClass" v-html="inputText">
     </div>
     <div class="menu"
          ref="menu"

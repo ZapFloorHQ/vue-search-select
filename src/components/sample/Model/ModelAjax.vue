@@ -20,7 +20,7 @@
           <thead>
           <tr>
             <th>code</th>
-            <th>name<th>
+            <th>name</th>
           </tr>
           </thead>
           <tbody>

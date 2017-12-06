@@ -15,7 +15,7 @@
                            :selected-items="items"
                            placeholder="select item"
                            @select="onSelect"
-                           @searchchange="printSearchText">
+                           @searchchange="printSearchText" @blur="onBlur">
         </multi-list-select>
       </div>
     </div>
@@ -88,8 +88,11 @@
       }
     },
     methods: {
+      onBlur () {
+        console.log('blur')
+      },
       codeAndNameAndDesc (item) {
-        return `${item.code} - ${item.name} - ${item.desc}`
+        return `${item.code}<div style="float:right;"> - ${item.name} - ${item.desc}</div>`
       },
       onSelect (items, lastSelectItem) {
         this.items = items

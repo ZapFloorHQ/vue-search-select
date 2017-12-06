@@ -6,8 +6,8 @@
     <i class="dropdown icon"></i>
     <template v-for="(option, idx) in selectedOptions">
       <a class="ui label transition visible"
-         style="display: inline-block !important;">
-        {{option.text}}<i class="delete icon" @click="deleteItem(option)"></i>
+         style="display: inline-block !important;" v-html="option.text">
+         <i class="delete icon" @click="deleteItem(option)"></i>
       </a>
     </template>
     <input class="search"
@@ -22,6 +22,7 @@
            @keydown.down="nextItem"
            @keydown.enter.prevent=""
            @keyup.enter.prevent="enterItem"
+           @keyup.tab="enterItem"
            @keydown.delete="deleteTextOrLastItem"
            @keydown.esc="closeOptions"
            @keydown.anyKeyCode="openOptions"
@@ -75,8 +76,10 @@
       }
     },
     watch: {
-      searchText: function(newval, oldval){
-        console.log(newval)
+      searchText: function (newval, oldval) {
+        if (newval && this.filteredOptions.length === 0) {
+          console.log('item does not exist...')
+        }
       }
     },
     computed: {
@@ -168,8 +171,15 @@
       mousedownItem () {
         common.mousedownItem(this)
       },
-      selectItem (option) {
-        const selectedOptions = _.unionWith(this.selectedOptions, [option], _.isEqual)
+      selectItem (option, newOption = false) {
+        console.log('option:')
+        console.log(option)
+        let selectedOptions = null
+        if (newOption) {
+          this.$emit('itemAdded', option)
+        }
+        selectedOptions = _.unionWith(this.selectedOptions, [option], _.isEqual)
+        console.log(selectedOptions)
         this.closeOptions()
         this.searchText = ''
         this.$emit('select', selectedOptions, option, 'insert')

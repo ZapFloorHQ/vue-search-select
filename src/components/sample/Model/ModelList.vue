@@ -109,7 +109,7 @@
     },
     methods: {
       codeAndNameAndDesc (item) {
-        return `${item.code} - ${item.name} - ${item.desc}`
+        return `<b>${item.code}</b><br /> - ${item.name} - ${item.desc}`
       },
       reset () {
         this.objectItem = {}
