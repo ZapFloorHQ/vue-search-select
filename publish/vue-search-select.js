@@ -20102,7 +20102,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    ref: "input",
 	    staticClass: "search",
 	    attrs: {
-	      "autocomplete": "off",
+	      "autocomplete": "nope",
 	      "tabindex": "0"
 	    },
 	    domProps: {
@@ -20223,7 +20223,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    staticClass: "search",
 	    style: (_vm.inputWidth),
 	    attrs: {
-	      "autocomplete": "off",
+	      "autocomplete": "nope",
 	      "tabindex": "0"
 	    },
 	    domProps: {
@@ -20332,7 +20332,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    ref: "input",
 	    staticClass: "search",
 	    attrs: {
-	      "autocomplete": "off",
+	      "autocomplete": "nope",
 	      "tabindex": "0"
 	    },
 	    domProps: {

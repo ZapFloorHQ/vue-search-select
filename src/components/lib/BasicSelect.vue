@@ -5,7 +5,7 @@
        @focus="openOptions">
     <i class="dropdown icon"></i>
     <input class="search"
-           autocomplete="off"
+           autocomplete="nope"
            tabindex="0"
            v-model="searchText"
            ref="input"
